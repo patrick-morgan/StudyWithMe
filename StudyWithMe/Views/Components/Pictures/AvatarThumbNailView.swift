@@ -23,9 +23,9 @@ struct AvatarThumbNailView: View {
                 ThumbNailView(photo: photo)
             } else {
                 if let photo = photo.picture {
-                    Thumbnail(imageData: photo)
+                    ThumbNail(imageData: photo)
                 } else {
-                    Thumbnail(imageData: UIImage().jpegData(compressionQuality: Dimensions.compressionQuality)!)
+                    ThumbNail(imageData: UIImage().jpegData(compressionQuality: Dimensions.compressionQuality)!)
                 }
             }
         }
@@ -36,12 +36,12 @@ struct AvatarThumbNailView: View {
     }
 }
 
-struct AvatarThumbNailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppearancePreviews(
-            AvatarThumbNailView(photo: .sample)
-                .padding()
-                .previewLayout(.sizeThatFits)
-        )
-    }
-}
+// struct AvatarThumbNailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AppearancePreviews(
+//            AvatarThumbNailView(photo: .sample)
+//                .padding()
+//                .previewLayout(.sizeThatFits)
+//        )
+//    }
+// }

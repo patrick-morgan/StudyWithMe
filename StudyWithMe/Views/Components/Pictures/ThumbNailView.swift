@@ -30,15 +30,15 @@ struct ThumbNailView: View {
     }
 }
 
-struct ThumbNailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppearancePreviews(
-            Group {
-                ThumbNailView(photo: .sample)
-                ThumbNailView(photo: nil)
-            }
-        )
-        .padding()
-        .previewLayout(.sizeThatFits)
-    }
-}
+// struct ThumbNailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AppearancePreviews(
+//            Group {
+//                ThumbNailView(photo: .sample)
+//                ThumbNailView(photo: nil)
+//            }
+//        )
+//        .padding()
+//        .previewLayout(.sizeThatFits)
+//    }
+// }

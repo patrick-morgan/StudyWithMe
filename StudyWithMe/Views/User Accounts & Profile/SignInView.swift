@@ -102,6 +102,7 @@ struct LoginView: View {
     }
     
     private func signIn() {
+        state.shouldIndicateActivity = true
         print("Signing In")
         print("Email: \(email)")
         print("Password: \(password)")

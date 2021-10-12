@@ -33,13 +33,6 @@ struct ContentView: View {
                 }
             }
         }
-        
-//        SignInView()
-//        if !userRealmConfiguration.signedIn {
-//            SignInView()
-//        } else {
-//            HomeView()
-//        }
     }
 }
 

@@ -31,12 +31,12 @@ struct AvatarButton: View {
     }
 }
 
-struct AvatarButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AppearancePreviews(
-            AvatarButton(photo: .sample, action: {})
-        )
-        .padding()
-        .previewLayout(.sizeThatFits)
-    }
-}
+// struct AvatarButton_Previews: PreviewProvider {
+//    static var previews: some View {
+////        AppearancePreviews(
+//////            AvatarButton(photo: StudyLogo, action: {})
+////        )
+////        .padding()
+////        .previewLayout(.sizeThatFits)
+//    }
+// }

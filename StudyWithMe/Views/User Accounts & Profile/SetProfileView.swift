@@ -4,14 +4,16 @@
 //
 //  Created by Patrick Morgan on 10/12/21.
 //
-
+import UIKit
 import SwiftUI
 import RealmSwift
 
 struct SetProfileView: View {
     @EnvironmentObject var state: AppState
     @Environment(\.realm) var userRealm
+    
     @Binding var isPresented: Bool
+    
     @State private var userName = ""
     @State private var photo: Photo?
     @State private var photoAdded = false
@@ -48,6 +50,17 @@ struct SetProfileView: View {
 //                OnlineAlertSettings()
 //            }
         }
+        .onAppear { initData() }
+        .padding()
+        .navigationBarTitle("Edit Profile", displayMode: .inline)
+        .navigationBarItems(
+            leading: Button(action: { isPresented = false }) { BackButton() },
+            trailing: state.loggedIn ? LogoutButton(action: { isPresented = false }) : nil)
+    }
+    
+    private func initData() {
+        userName = state.user?.userPreferences?.userName ?? ""
+        photo = state.user?.userPreferences?.profilePhoto
     }
     
     private func saveProfile() {

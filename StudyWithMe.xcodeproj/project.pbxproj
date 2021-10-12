@@ -38,6 +38,8 @@
 		497C77CE271568AA00742714 /* CallToActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77CD271568AA00742714 /* CallToActionButton.swift */; };
 		497C77D427156C7E00742714 /* PhotoCaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77D327156C7E00742714 /* PhotoCaptureController.swift */; };
 		497C77DC27156D2800742714 /* UIImageThumbNail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77DB27156D2800742714 /* UIImageThumbNail.swift */; };
+		497C77E127156ED800742714 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77E027156ED800742714 /* BackButton.swift */; };
+		497C77E627156F3900742714 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77E527156F3900742714 /* LogoutButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		497C77CD271568AA00742714 /* CallToActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionButton.swift; sourceTree = "<group>"; };
 		497C77D327156C7E00742714 /* PhotoCaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureController.swift; sourceTree = "<group>"; };
 		497C77DB27156D2800742714 /* UIImageThumbNail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageThumbNail.swift; sourceTree = "<group>"; };
+		497C77E027156ED800742714 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		497C77E527156F3900742714 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,7 @@
 				497C77C32715682D00742714 /* InputField.swift */,
 				497C77C82715684400742714 /* CaptionLabel.swift */,
 				497C77CD271568AA00742714 /* CallToActionButton.swift */,
+				497C77E027156ED800742714 /* BackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			children = (
 				496AC0AD26FBA14D00699457 /* SignInView.swift */,
 				496AC0B226FBA2EE00699457 /* SignUpView.swift */,
+				497C77E527156F3900742714 /* LogoutButton.swift */,
 				497C77992715662800742714 /* SetProfileView.swift */,
 			);
 			path = "User Accounts & Profile";
@@ -423,6 +429,7 @@
 				497C77812714B98400742714 /* LocationHours.swift in Sources */,
 				497C776C2714A2BE00742714 /* CheckIn.swift in Sources */,
 				497C779427155C8C00742714 /* OpaqueProgressView.swift in Sources */,
+				497C77E627156F3900742714 /* LogoutButton.swift in Sources */,
 				497C775C27149EB800742714 /* UserPreferences.swift in Sources */,
 				496AC0B326FBA2EE00699457 /* SignUpView.swift in Sources */,
 				497C77A4271566ED00742714 /* AvatarButton.swift in Sources */,
@@ -440,6 +447,7 @@
 				497C77C42715682D00742714 /* InputField.swift in Sources */,
 				497C77792714B6EE00742714 /* Location.swift in Sources */,
 				497C775727149CC700742714 /* User.swift in Sources */,
+				497C77E127156ED800742714 /* BackButton.swift in Sources */,
 				497C77B12715674600742714 /* ThumbNailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

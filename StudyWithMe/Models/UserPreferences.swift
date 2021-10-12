@@ -9,8 +9,9 @@ import Foundation
 import RealmSwift
 
 class UserPreferences: EmbeddedObject, ObjectKeyIdentifiable {
-    @Persisted var userName: String?
+    @Persisted var userName: String
     @Persisted var profilePhoto: Photo?
     
-    var isEmpty: Bool { userName == nil || userName == "" }
+    // Returns true if userName is still default ""
+    var isEmpty: Bool { userName == "" }
 }

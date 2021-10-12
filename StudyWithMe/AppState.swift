@@ -31,7 +31,9 @@ class AppState: ObservableObject {
         set (newState) {
             if newState {
                 busyCount += 1
+                print("busy count plus:", busyCount)
             } else {
+                print("busy count subtract:", busyCount)
                 if busyCount > 0 {
                     busyCount -= 1
                 } else {
@@ -77,47 +79,18 @@ class AppState: ObservableObject {
             }, receiveValue: { realm in
                 print("User Realm User file location: \(realm.configuration.fileURL!.path)")
                 self.user = realm.objects(User.self).first
-//                do {
-//                    try realm.write {
-//                        self.user?.presenceState = .onLine
-//                    }
-//                } catch {
-//                    self.error = "Unable to open Realm write transaction"
-//                }
+                // Will write through to mongo --> neat!!
+                do {
+                    try realm.write {
+                        self.user?.lastSeenAt = Date()
+                    }
+                } catch {
+                    self.error = "Unable to open Realm write transaction"
+                }
                 self.shouldIndicateActivity = false
             })
             .store(in: &cancellables)
     }
-    
-//    func initPublicUsersLoginPublisher() {
-//        publicUsersLoginPublisher
-//            .receive(on: DispatchQueue.main)
-//            .flatMap { user -> RealmPublishers.AsyncOpenPublisher in
-//                    self.shouldIndicateActivity = true
-//                    let realmConfig = user.configuration(partitionValue: "all-users=all-the-users")
-//                    return Realm.asyncOpen(configuration: realmConfig)
-//              }
-//              .receive(on: DispatchQueue.main)
-//              .map {
-//                    return $0
-//              }
-//              .subscribe(publicUsersRealmPublisher)
-//              .store(in: &self.cancellables)
-//    }
-//
-//    func initPublicUsersRealmPublisher() {
-//        publicUsersRealmPublisher
-//            .sink(receiveCompletion: { result in
-//                    if case let .failure(error) = result {
-//                       self.error = "Failed to log in and open chatster realm: \(error.localizedDescription)"
-//                    }
-//              }, receiveValue: { realm in
-//                    print("Chatster Realm User file location: \(realm.configuration.fileURL!.path)")
-//                    self.publicUsersRealm = realm
-//                    self.shouldIndicateActivity = false
-//              })
-//              .store(in: &cancellables)
-//    }
     
     func initLogoutPublisher() {
         logoutPublisher

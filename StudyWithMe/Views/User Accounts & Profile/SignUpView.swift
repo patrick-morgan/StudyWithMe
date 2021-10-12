@@ -52,31 +52,33 @@ struct SignUpInfoView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            TextField("First name", text: $firstName)
-                .padding()
-                .background(lightGreyColor)
-                .cornerRadius(5.0)
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 8)
-            TextField("Last name", text: $lastName)
-                .padding()
-                .background(lightGreyColor)
-                .cornerRadius(5.0)
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 8)
+//            TextField("First name", text: $firstName)
+//                .padding()
+//                .background(lightGreyColor)
+//                .cornerRadius(5.0)
+//                .frame(maxWidth: .infinity)
+//                .padding(.bottom, 8)
+//            TextField("Last name", text: $lastName)
+//                .padding()
+//                .background(lightGreyColor)
+//                .cornerRadius(5.0)
+//                .frame(maxWidth: .infinity)
+//                .padding(.bottom, 8)
             TextField("Email", text: $email)
                 .padding()
                 .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 8)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .keyboardType(.emailAddress)
             SecureField("Password", text: $password)
                 .padding()
                 .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 8)
                 .frame(maxWidth: .infinity)
-
             SecureField("Confirm Password", text: $confirmPassword)
                 .padding()
                 .background(lightGreyColor)
@@ -103,11 +105,17 @@ struct SignUpInfoView: View {
     }
     
     private func signUp() {
+        state.shouldIndicateActivity = true
         print("Email: \(email)")
         print("Password: \(password)")
         
-        if email.isEmpty || password.isEmpty {
+        if email.isEmpty || password.isEmpty || confirmPassword.isEmpty {
             state.shouldIndicateActivity = false
+            return
+        }
+        if password != confirmPassword {
+            state.shouldIndicateActivity = false
+            return
         }
         
         self.state.error = nil
@@ -130,6 +138,7 @@ struct SignUpInfoView: View {
     
     private func signIn() {
         self.state.error = nil
+        state.shouldIndicateActivity = true
         app.login(credentials: .emailPassword(email: email, password: password))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {
