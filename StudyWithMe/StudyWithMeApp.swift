@@ -9,13 +9,16 @@ import RealmSwift
 import SwiftUI
 
 // Declare the global Realm App instance
-let app = App(id: "studywithmeapp-thoax")
+let app = RealmSwift.App(id: "studywithme-realm-grlye")
 
 @main
 struct StudyWithMeApp: SwiftUI.App {
+    @StateObject var state = AppState()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(state)
         }
     }
 }

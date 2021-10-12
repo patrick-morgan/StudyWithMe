@@ -9,6 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct SignInView: View {
+    
+    @EnvironmentObject var state: AppState
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var authFailed: Bool = false
@@ -38,6 +41,7 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+            .environmentObject(AppState())
     }
 }
 
@@ -60,7 +64,7 @@ struct LoginView: View {
     @Binding var password: String
     @Binding var authFailed: Bool
     @State var errorText: String = ""
-    @EnvironmentObject var userRealmConfiguration: UserRealmConfiguration
+    @EnvironmentObject var state: AppState
 
     var body: some View {
         VStack {
@@ -70,6 +74,9 @@ struct LoginView: View {
                 .cornerRadius(5.0)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 5)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .keyboardType(.emailAddress)
             SecureField("Password", text: $password)
                 .padding()
                 .background(lightGreyColor)
@@ -105,39 +112,26 @@ struct LoginView: View {
 //        userRealmConfiguration.score += 1
 //        print(userRealmConfiguration.score)
         
-        app.login(credentials: Credentials.emailPassword(email: email, password: password)) { (result) in
-            // Completion handlers are not necessarily called on the UI thread.
-            // This call to DispatchQueue.main.async ensures that any changes to the UI,
-            // namely disabling the loading indicator and navigating to the next page,
-            // are handled on the UI thread:
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print("Login failed: \(error)")
-                    errorText = "Login failed: \(error.localizedDescription)"
-                    authFailed = true
-                    return
-                case .success(let user):
-                    print("Login succeeded!")
-                    // Get Realm configuration so we can open the synced realm
-                    let configuration = user.configuration(partitionValue: user.id)
-                    // Open the realm asynchronously so that it downloads the remote copy before
-                    // opening the local copy.
-                    Realm.asyncOpen(configuration: configuration) { (result) in
-                        DispatchQueue.main.async {
-                            switch result {
-                            case .failure(let error):
-                                fatalError("Failed to open realm: \(error)")
-                            case .success:
-                                // Set configuration to environment object
-                                print("success")
-                                userRealmConfiguration.configuration = configuration
-                                userRealmConfiguration.signedIn = true
-                            }
-                        }
-                    }
-                }
-            }
+        if email.isEmpty || password.isEmpty {
+            state.shouldIndicateActivity = false
+            return
         }
+        self.state.error = nil
+        
+        app.login(credentials: Credentials.emailPassword(email: email, password: password))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                state.shouldIndicateActivity = false
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.state.error = error.localizedDescription
+                }
+            }, receiveValue: {
+                self.state.error = nil
+                state.loginPublisher.send($0)
+            })
+            .store(in: &state.cancellables)
     }
 }

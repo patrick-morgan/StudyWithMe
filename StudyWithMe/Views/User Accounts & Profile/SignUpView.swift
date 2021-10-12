@@ -48,7 +48,7 @@ struct SignUpInfoView: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var loading: Bool = false
-    @EnvironmentObject var userRealmConfiguration: UserRealmConfiguration
+    @EnvironmentObject var state: AppState
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -105,64 +105,45 @@ struct SignUpInfoView: View {
     private func signUp() {
         print("Email: \(email)")
         print("Password: \(password)")
-//        email = "fish"
-//        password = "blob"
-//        loading = true
-//        app.emailPasswordAuth.registerUser(email: email, password: password)
         
-        app.emailPasswordAuth.registerUser(email: email, password: password) { (error) in
-            // Completion handlers are not necessarily called on the UI thread.
-            // This call to DispatchQueue.main.async ensures that any changes to the UI,
-            // namely disabling the loading indicator and navigating to the next page,
-            // are handled on the UI thread:
-            DispatchQueue.main.async {
-                guard error == nil else {
-                    print("Signup failed: \(error!)")
-                    return
-                }
-
-                // Successful
-                print("Successfully registered user.")
-                signIn()
-            }
+        if email.isEmpty || password.isEmpty {
+            state.shouldIndicateActivity = false
         }
+        
+        self.state.error = nil
+        app.emailPasswordAuth.registerUser(email: email, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                state.shouldIndicateActivity = false
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.state.error = error.localizedDescription
+                }
+            }, receiveValue: {
+                self.state.error = nil
+                signIn()
+            })
+            .store(in: &state.cancellables)
     }
     
     private func signIn() {
-        app.login(credentials: Credentials.emailPassword(email: email, password: password)) { (result) in
-            // Completion handlers are not necessarily called on the UI thread.
-            // This call to DispatchQueue.main.async ensures that any changes to the UI,
-            // namely disabling the loading indicator and navigating to the next page,
-            // are handled on the UI thread:
-            DispatchQueue.main.async {
-                switch result {
+        self.state.error = nil
+        app.login(credentials: .emailPassword(email: email, password: password))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                state.shouldIndicateActivity = false
+                switch $0 {
+                case .finished:
+                    break
                 case .failure(let error):
-                    print("Login failed: \(error)")
-//                    errorText = "Login failed: \(error.localizedDescription)"
-//                    authFailed = true
-                    // Navigate to Home Screen
-                    return
-                case .success(let user):
-                    print("Login succeeded!")
-                    // Get Realm configuration so we can open the synced realm
-                    let configuration = user.configuration(partitionValue: user.id)
-                    // Open the realm asynchronously so that it downloads the remote copy before
-                    // opening the local copy.
-                    Realm.asyncOpen(configuration: configuration) { (result) in
-                        DispatchQueue.main.async {
-                            switch result {
-                            case .failure(let error):
-                                fatalError("Failed to open realm: \(error)")
-                            case .success:
-                                // Set configuration to environment object
-                                print("success")
-                                userRealmConfiguration.configuration = configuration
-                                userRealmConfiguration.signedIn = true
-                            }
-                        }
-                    }
+                    self.state.error = error.localizedDescription
                 }
-            }
-        }
+            }, receiveValue: {
+                self.state.error = nil
+                state.loginPublisher.send($0)
+            })
+            .store(in: &state.cancellables)
     }
 }
