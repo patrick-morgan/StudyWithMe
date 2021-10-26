@@ -10,13 +10,13 @@ import RealmSwift
 
 final class Location: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id = UUID().uuidString
-    @Persisted var partition = "" // "location=_id"
+    @Persisted var partition = "location=all-the-users" // "location=all-the-users" --> all users can access
     @Persisted var name = ""
     @Persisted var address = ""
     @Persisted var city = ""
     @Persisted var state = ""
-    @Persisted var locationPhoto: Photo?
-    @Persisted var locationHours: LocationHours?
+//    @Persisted var locationPhoto: Photo?
+//    @Persisted var locationHours: LocationHours?
     
     // Coordinate for map view
 //    @Persisted var locationCoordinate:

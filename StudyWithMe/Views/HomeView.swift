@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HomeView: View {
+    @EnvironmentObject var state: AppState
+    @Environment(\.realm) var userRealm
+//    @ObservedResults(Location.self) var locations
+    
+//    let locations = userRealm.objects(Location.self)
+    
     var body: some View {
-        Text("The Home View!!")
+        VStack {
+            Text("Where to study today?")
+            LocationListView()
+                .environmentObject(state)
+                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))
+//                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "all-users=all-the-users"))
+
+        }
     }
 }
 

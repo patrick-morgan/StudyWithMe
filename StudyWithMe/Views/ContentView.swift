@@ -23,6 +23,7 @@ struct ContentView: View {
                                 .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
                         } else {
                             HomeView()
+                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
                         }
                     } else {
                         SignInView()
