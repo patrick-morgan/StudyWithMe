@@ -14,12 +14,20 @@ struct LocationDetail: View {
     
     var body: some View {
         ScrollView {
+//            MapView(coordinate: location.locationCoordinates)
+//                .ignoresSafeArea(edges: .top)
+//                .frame(height: 300)
+            
+            CircleImage(photoData: location.photo!.picture!, failure: Image(systemName: "multiply.circle"))
+                .offset(y: -130)
+                .padding(.bottom, -130)
+            
             VStack(alignment: .leading) {
                 HStack {
                     Text(location.name)
                         .font(.title)
                 }
-                .padding()
+//                .padding()
 
                 HStack {
                     Text(location.address)

@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import CoreLocation
 
 final class Location: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id = UUID().uuidString
@@ -15,9 +16,15 @@ final class Location: Object, ObjectKeyIdentifiable {
     @Persisted var address = ""
     @Persisted var city = ""
     @Persisted var state = ""
-//    @Persisted var locationPhoto: Photo?
+    @Persisted var photo: Photo?
 //    @Persisted var locationHours: LocationHours?
     
     // Coordinate for map view
-//    @Persisted var locationCoordinate:
+//    @Persisted var coordinates: Coordinates
+//    var locationCoordinates: CLLocationCoordinate2D {
+//        CLLocationCoordinate2D(
+//            latitude: coordinates.latitude,
+//            longitude: coordinates.longitude
+//        )
+//    }
 }

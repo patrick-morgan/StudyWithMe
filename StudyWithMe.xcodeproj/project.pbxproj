@@ -13,6 +13,9 @@
 		49619A582729D03400DC9431 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A572729D03400DC9431 /* LocationRow.swift */; };
 		49619A5D2729D03B00DC9431 /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A5C2729D03B00DC9431 /* LocationDetail.swift */; };
 		49619A622729D11700DC9431 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A612729D11700DC9431 /* SampleData.swift */; };
+		49619A672729E92900DC9431 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A662729E92900DC9431 /* CircleImage.swift */; };
+		49619A6C2729EFF000DC9431 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A6B2729EFF000DC9431 /* MapView.swift */; };
+		49619A712729F0A900DC9431 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49619A702729F0A900DC9431 /* Coordinates.swift */; };
 		496AC05926FA51EF00699457 /* StudyWithMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AC05826FA51EF00699457 /* StudyWithMeApp.swift */; };
 		496AC05B26FA51EF00699457 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AC05A26FA51EF00699457 /* ContentView.swift */; };
 		496AC05D26FA51F100699457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496AC05C26FA51F100699457 /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 		49619A572729D03400DC9431 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		49619A5C2729D03B00DC9431 /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
 		49619A612729D11700DC9431 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		49619A662729E92900DC9431 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		49619A6B2729EFF000DC9431 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		49619A702729F0A900DC9431 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		496AC05526FA51EF00699457 /* StudyWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		496AC05826FA51EF00699457 /* StudyWithMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyWithMeApp.swift; sourceTree = "<group>"; };
 		496AC05A26FA51EF00699457 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 				497C77602714A09700742714 /* Photo.swift */,
 				497C77782714B6EE00742714 /* Location.swift */,
 				497C77802714B98400742714 /* LocationHours.swift */,
+				49619A702729F0A900DC9431 /* Coordinates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,6 +294,7 @@
 				497C77B02715674600742714 /* ThumbNailView.swift */,
 				497C77B52715676000742714 /* ThumbNail.swift */,
 				497C77DB27156D2800742714 /* UIImageThumbNail.swift */,
+				49619A662729E92900DC9431 /* CircleImage.swift */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				497C77D327156C7E00742714 /* PhotoCaptureController.swift */,
+				49619A6B2729EFF000DC9431 /* MapView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,6 +484,7 @@
 				497C776C2714A2BE00742714 /* CheckIn.swift in Sources */,
 				497C779427155C8C00742714 /* OpaqueProgressView.swift in Sources */,
 				497C77E627156F3900742714 /* LogoutButton.swift in Sources */,
+				49619A712729F0A900DC9431 /* Coordinates.swift in Sources */,
 				497C775C27149EB800742714 /* UserPreferences.swift in Sources */,
 				496AC0B326FBA2EE00699457 /* SignUpView.swift in Sources */,
 				49619A532728792E00DC9431 /* ProfileHome.swift in Sources */,
@@ -491,6 +501,8 @@
 				496AC0AE26FBA14D00699457 /* SignInView.swift in Sources */,
 				496AC0BF26FCF39600699457 /* HomeView.swift in Sources */,
 				497C77AC2715672900742714 /* AvatarThumbNailView.swift in Sources */,
+				49619A672729E92900DC9431 /* CircleImage.swift in Sources */,
+				49619A6C2729EFF000DC9431 /* MapView.swift in Sources */,
 				497C77B62715676000742714 /* ThumbNail.swift in Sources */,
 				497C77C42715682D00742714 /* InputField.swift in Sources */,
 				497C77792714B6EE00742714 /* Location.swift in Sources */,
