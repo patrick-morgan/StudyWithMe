@@ -12,7 +12,14 @@ let lightGreyColor = Color(red: 239.0 / 255.0, green: 243.0 / 255.0, blue: 244.0
 struct ContentView: View {
     @EnvironmentObject var state: AppState
     @State private var showingProfileView = false
+    @State private var selection: Tab = .locations
     
+    enum Tab {
+        case friends
+        case locations
+        case profile
+    }
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,8 +29,25 @@ struct ContentView: View {
                             SetProfileView(isPresented: $showingProfileView)
                                 .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
                         } else {
-                            HomeView()
-                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+                            TabView(selection: $selection) {
+                                FriendsHome()
+                                    .tabItem {
+                                        Label("Friends", systemImage: "star")
+                                    }
+                                    .tag(Tab.friends)
+                                LocationHome()
+                                    .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+                                    .tabItem {
+                                        Label("Locations", systemImage: "list.bullet")
+                                    }
+                                    .tag(Tab.locations)
+                                ProfileHome()
+                                    .tabItem {
+                                        Label("Profile", systemImage: "star")
+                                    }
+                                    .tag(Tab.profile)
+                            }
+                            
                         }
                     } else {
                         SignInView()
@@ -40,5 +64,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AppState())
     }
 }

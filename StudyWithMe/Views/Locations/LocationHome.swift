@@ -1,14 +1,14 @@
 //
-//  Home.swift
+//  LocationHome.swift
 //  StudyWithMe
 //
-//  Created by Patrick Morgan on 9/23/21.
+//  Created by Patrick Morgan on 10/26/21.
 //
 
 import SwiftUI
 import RealmSwift
 
-struct HomeView: View {
+struct LocationHome: View {
     @EnvironmentObject var state: AppState
     @Environment(\.realm) var userRealm
 //    @ObservedResults(Location.self) var locations
@@ -27,8 +27,11 @@ struct HomeView: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct LocationHome_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        Realm.bootstrap()
+        
+        return LocationHome()
+            .environmentObject(AppState.sample)
     }
 }

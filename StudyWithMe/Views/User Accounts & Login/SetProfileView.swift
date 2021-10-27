@@ -96,11 +96,12 @@ struct SetProfileView: View {
 
 struct SetProfileView_Previews: PreviewProvider {
     static var previews: some View {
+        let previewState: AppState = .sample
         return AppearancePreviews(
             NavigationView {
                 SetProfileView(isPresented: .constant(true))
             }
         )
-        .environmentObject(AppState())
+        .environmentObject(previewState)
     }
 }

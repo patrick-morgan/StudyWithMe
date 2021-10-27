@@ -38,13 +38,6 @@ struct SignInView: View {
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
-            .environmentObject(AppState())
-    }
-}
-
 struct LogoView: View {
     var body: some View {
         Image("StudyLogo")
@@ -134,5 +127,12 @@ struct LoginView: View {
                 state.loginPublisher.send($0)
             })
             .store(in: &state.cancellables)
+    }
+}
+
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInView()
+            .environmentObject(AppState())
     }
 }

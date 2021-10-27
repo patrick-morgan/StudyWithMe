@@ -31,12 +31,6 @@ struct SignUpView: View {
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
-    }
-}
-
 struct SignUpInfoView: View {
 //    @Binding var email: String
 //    @Binding var password: String
@@ -154,5 +148,12 @@ struct SignUpInfoView: View {
                 state.loginPublisher.send($0)
             })
             .store(in: &state.cancellables)
+    }
+}
+
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
+            .environmentObject(AppState())
     }
 }
