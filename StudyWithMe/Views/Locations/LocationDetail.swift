@@ -18,7 +18,7 @@ struct LocationDetail: View {
 //                .ignoresSafeArea(edges: .top)
 //                .frame(height: 300)
             
-            CircleImage(photoData: location.photo!.picture!, failure: Image(systemName: "multiply.circle"))
+            CircleImage(image: location.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
             

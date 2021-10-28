@@ -184,13 +184,13 @@ extension Photo: Samplable {
 }
 
 extension Location {
-    convenience init(name: String, address: String, city: String, state: String, photo: Photo) {
+    convenience init(name: String, address: String, city: String, state: String, imageName: String) {
         self.init()
         self.name = name
         self.address = address
         self.city = city
         self.state = state
-        self.photo = photo
+        self.imageName = imageName
 //        self.coordinates = coordinates
     }
     
@@ -201,16 +201,16 @@ extension Location {
         address = location.address
         city = location.city
         state = location.state
-        photo = location.photo
+        imageName = location.imageName
 //        coordinates = location.coordinates
     }
 }
 
 extension Location: Samplable {
     static var samples: [Location] { [sample, sample2, sample3] }
-    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", photo: .starbucksPhoto) }
-    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", photo: .shinolaPhoto) }
-    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", photo: .unionPhoto) }
+    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", imageName: "starbucks") }
+    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", imageName: "shinola") }
+    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", imageName: "union") }
 }
 
 // extension Coordinates {
