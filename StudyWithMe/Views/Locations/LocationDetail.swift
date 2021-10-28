@@ -14,9 +14,9 @@ struct LocationDetail: View {
     
     var body: some View {
         ScrollView {
-//            MapView(coordinate: location.locationCoordinates)
-//                .ignoresSafeArea(edges: .top)
-//                .frame(height: 300)
+            MapView(coordinate: location.locationCoordinates, name: location.name)
+                .ignoresSafeArea(edges: .top)
+                .frame(height: 300)
             
             CircleImage(image: location.image)
                 .offset(y: -130)
@@ -27,7 +27,6 @@ struct LocationDetail: View {
                     Text(location.name)
                         .font(.title)
                 }
-//                .padding()
 
                 HStack {
                     Text(location.address)

@@ -184,14 +184,14 @@ extension Photo: Samplable {
 }
 
 extension Location {
-    convenience init(name: String, address: String, city: String, state: String, imageName: String) {
+    convenience init(name: String, address: String, city: String, state: String, imageName: String, coordinates: Coordinates) {
         self.init()
         self.name = name
         self.address = address
         self.city = city
         self.state = state
         self.imageName = imageName
-//        self.coordinates = coordinates
+        self.coordinates = coordinates
     }
     
     convenience init(_ location: Location) {
@@ -202,38 +202,58 @@ extension Location {
         city = location.city
         state = location.state
         imageName = location.imageName
-//        coordinates = location.coordinates
+        coordinates = location.coordinates
     }
 }
 
 extension Location: Samplable {
     static var samples: [Location] { [sample, sample2, sample3] }
-    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", imageName: "starbucks") }
-    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", imageName: "shinola") }
-    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", imageName: "union") }
+    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", imageName: "starbucks", coordinates: .sample) }
+    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", imageName: "shinola", coordinates: .sample2) }
+    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", imageName: "union", coordinates: .sample3) }
 }
 
+extension Coordinates {
+    convenience init(latitude: Double, longitude: Double) {
+        self.init()
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+    convenience init(_ coordinates: Coordinates) {
+        self.init()
+        latitude = coordinates.latitude
+        longitude = coordinates.longitude
+    }
+}
+
+extension Coordinates: Samplable {
+    static var samples: [Coordinates] { [sample, sample2, sample3] }
+    static var sample: Coordinates { Coordinates(latitude: 42.27506374973899, longitude: -83.73405691720389) }
+    static var sample2: Coordinates { Coordinates(latitude: 42.279595200351196, longitude: -83.74835475953326) }
+    static var sample3: Coordinates { Coordinates(latitude: 42.27520001087085, longitude: -83.74108554475941) }
+}
 // extension Coordinates {
 //    convenience init(latitude: Double, longitude: Double) {
 //        self.init()
 //        self.latitude = latitude
 //        self.longitude = longitude
 //    }
-//    
+//
 //    convenience init(_ coordinate: Coordinates) {
 //        self.init()
 //        latitude = coordinate.latitude
 //        longitude = coordinate.longitude
 //    }
 // }
-//
+
 // extension Coordinates: Samplable {
 ////    static var samples: [Coordinates] { [ sample, sample2, sample3 ]}
 //    static var samples: [Coordinates] { [ sample ]}
 //
 //    static var sample: Coordinates { Coordinates(latitude: 42.27506374973899, longitude: -83.73405691720389) }
-////    static var sample2: Coordinates { Coordinates(latitude: 42.279595200351196, longitude: -83.74835475953326) }
-////    static var sample3: Coordinates { Coordinates(latitude: 42.27520001087085, longitude: -83.74108554475941) }
+//    static var sample2: Coordinates { Coordinates(latitude: 42.279595200351196, longitude: -83.74835475953326) }
+//    static var sample3: Coordinates { Coordinates(latitude: 42.27520001087085, longitude: -83.74108554475941) }
 // }
 
 extension Realm: Samplable {
