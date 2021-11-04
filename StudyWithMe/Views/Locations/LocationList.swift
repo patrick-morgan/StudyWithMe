@@ -18,7 +18,8 @@ struct LocationList: View {
 //    @ObservedResults(User.self) var users
         
     var body: some View {
-        NavigationView {
+        print(locations)
+        return NavigationView {
             List {
                 ForEach(locations) { location in
                     NavigationLink(destination: LocationDetail(location: location)) {

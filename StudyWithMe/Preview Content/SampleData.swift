@@ -22,7 +22,7 @@ extension Date {
 }
 
 extension User {
-    convenience init(email: String, firstName: String, lastName: String, userPreferences: UserPreferences, checkIns: [CheckIn]) {
+    convenience init(email: String, firstName: String, lastName: String, userPreferences: UserPreferences) {
         self.init()
         partition = "user=\(_id)"
         self.email = email
@@ -30,12 +30,9 @@ extension User {
         self.lastName = lastName
         self.userPreferences = userPreferences
         self.lastSeenAt = Date.random
-        checkIns.forEach { checkIn in
-            self.checkIns.append(checkIn)
-        }
-        conversations.forEach { conversation in
-            self.conversations.append(conversation)
-        }
+//        checkIns.forEach { checkIn in
+//            self.checkIns.append(checkIn)
+//        }
     }
     
     convenience init(_ user: User) {
@@ -46,19 +43,26 @@ extension User {
         lastName = user.lastName
         userPreferences = UserPreferences(user.userPreferences)
         lastSeenAt = user.lastSeenAt
-        checkIns.append(objectsIn: user.checkIns.map { CheckIn($0) })
+//        checkIns.append(objectsIn: user.checkIns.map { CheckIn($0) })
     }
 }
 
 extension User: Samplable {
     static var samples: [User] { [sample, sample2, sample3] }
     static var sample: User {
-        User(email: "rod@rod.com", firstName: "Rod", lastName: "Smith", userPreferences: .sample, checkIns: [.sample, .sample2])
+        User(email: "rod@rod.com", firstName: "Rod", lastName: "Smith", userPreferences: .sample)
     }
     static var sample2: User {
-        User(email: "bob@bob.com", firstName: "Bob", lastName: "Blame", userPreferences: .sample2, checkIns: [.sample2, .sample3])    }
+        User(email: "bob@bob.com", firstName: "Bob", lastName: "Blame", userPreferences: .sample2)    }
     static var sample3: User {
-        User(email: "mary@mary.com", firstName: "Mary", lastName: "Laflam", userPreferences: .sample3, checkIns: [.sample, .sample2, .sample3])    }
+        User(email: "mary@mary.com", firstName: "Mary", lastName: "Laflam", userPreferences: .sample3)    }
+//    static var sample: User {
+//        User(email: "rod@rod.com", firstName: "Rod", lastName: "Smith", userPreferences: .sample, checkIns: [.sample, .sample2])
+//    }
+//    static var sample2: User {
+//        User(email: "bob@bob.com", firstName: "Bob", lastName: "Blame", userPreferences: .sample2, checkIns: [.sample2, .sample3])    }
+//    static var sample3: User {
+//        User(email: "mary@mary.com", firstName: "Mary", lastName: "Laflam", userPreferences: .sample3, checkIns: [.sample, .sample2, .sample3])    }
 }
 
 extension UserPreferences {
@@ -120,7 +124,7 @@ extension PublicUser {
         self.userName = user.userPreferences!.userName
         self.profilePhoto = Photo(user.userPreferences?.profilePhoto)
         lastSeenAt = Date.random
-        self.checkIns.append(objectsIn: user.checkIns.map { CheckIn($0) })
+//        self.checkIns.append(objectsIn: user.checkIns.map { CheckIn($0) })
     }
     
     convenience init(_ publicUser: PublicUser) {
@@ -131,7 +135,7 @@ extension PublicUser {
         userName = publicUser.userName
         profilePhoto = Photo(publicUser.profilePhoto)
         lastSeenAt = publicUser.lastSeenAt
-        checkIns.append(objectsIn: publicUser.checkIns.map { CheckIn($0) })
+//        checkIns.append(objectsIn: publicUser.checkIns.map { CheckIn($0) })
     }
 }
 
@@ -184,14 +188,14 @@ extension Photo: Samplable {
 }
 
 extension Location {
-    convenience init(name: String, address: String, city: String, state: String, imageName: String, coordinates: Coordinates) {
+    convenience init(name: String, address: String, city: String, state: String) {
         self.init()
         self.name = name
         self.address = address
         self.city = city
         self.state = state
-        self.imageName = imageName
-        self.coordinates = coordinates
+//        self.imageName = imageName
+//        self.coordinates = coordinates
     }
     
     convenience init(_ location: Location) {
@@ -201,16 +205,53 @@ extension Location {
         address = location.address
         city = location.city
         state = location.state
-        imageName = location.imageName
-        coordinates = location.coordinates
+//        imageName = location.imageName
+//        coordinates = location.coordinates
     }
 }
 
 extension Location: Samplable {
     static var samples: [Location] { [sample, sample2, sample3] }
-    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", imageName: "starbucks", coordinates: .sample) }
-    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", imageName: "shinola", coordinates: .sample2) }
-    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", imageName: "union", coordinates: .sample3) }
+    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan") }
+    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan") }
+    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan") }
+//    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan") }
+//    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan") }
+//    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan") }
+//    static var sample: Location { Location(name: "Starbucks S University", address: "1214 S University Ave", city: "Ann Arbor", state: "Michigan", imageName: "starbucks", coordinates: .sample) }
+//    static var sample2: Location { Location(name: "Shinola Store", address: "301 S Main St", city: "Ann Arbor", state: "Michigan", imageName: "shinola", coordinates: .sample2) }
+//    static var sample3: Location { Location(name: "Michigan Union", address: "530 S State St", city: "Ann Arbor", state: "Michigan", imageName: "union", coordinates: .sample3) }
+}
+
+extension LocationHours {
+    convenience init(sunday: String, monday: String, tuesday: String, wednesday: String, thursday: String, friday: String, saturday: String) {
+        self.init()
+        self.sunday = sunday
+        self.monday = monday
+        self.tuesday = tuesday
+        self.wednesday = wednesday
+        self.thursday = thursday
+        self.friday = friday
+        self.saturday = saturday
+    }
+    
+    convenience init(_ locationHours: LocationHours) {
+        self.init()
+        sunday = locationHours.sunday
+        monday = locationHours.monday
+        tuesday = locationHours.tuesday
+        wednesday = locationHours.wednesday
+        thursday = locationHours.thursday
+        friday = locationHours.friday
+        saturday = locationHours.saturday
+    }
+}
+
+extension LocationHours: Samplable {
+    static var samples: [LocationHours] { [sample, sample2, sample3] }
+    static var sample: LocationHours { LocationHours(sunday: "6AM-9PM", monday: "5:30AM-10PM", tuesday: "5:30AM-10PM", wednesday: "5:30AM-10PM", thursday: "5:30AM-10PM", friday: "5:30AM-10PM", saturday: "6AM-9PM")}
+    static var sample2: LocationHours { LocationHours(sunday: "11AM-7PM", monday: "11AM-7PM", tuesday: "11AM-7PM", wednesday: "11AM-7PM", thursday: "11AM-7PM", friday: "11AM-7PM", saturday: "11AM-7PM")}
+    static var sample3: LocationHours { LocationHours(sunday: "9AM-2AM", monday: "7AM-2AM", tuesday: "7AM-2AM", wednesday: "7AM-2AM", thursday: "7AM-2AM", friday: "7AM-2AM", saturday: "7AM-2AM")}
 }
 
 extension Coordinates {

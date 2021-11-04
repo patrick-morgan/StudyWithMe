@@ -17,19 +17,19 @@ final class Location: Object, ObjectKeyIdentifiable {
     @Persisted var address = ""
     @Persisted var city = ""
     @Persisted var state = ""
-    @Persisted var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
+//    @Persisted var imageName: String
+//    var image: Image {
+//        Image(imageName)
+//    }
 //    @Persisted var locationHours: LocationHours?
     
     // Coordinate for map view
     // To-one relationships in realm must always be marked optional
-    @Persisted var coordinates: Coordinates?
-    var locationCoordinates: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(
-            latitude: coordinates!.latitude,
-            longitude: coordinates!.longitude
-        )
-    }
+//    @Persisted var coordinates: Coordinates?
+//    var locationCoordinates: CLLocationCoordinate2D {
+//        CLLocationCoordinate2D(
+//            latitude: coordinates!.latitude,
+//            longitude: coordinates!.longitude
+//        )
+//    }
 }

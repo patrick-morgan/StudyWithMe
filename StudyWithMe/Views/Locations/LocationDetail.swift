@@ -11,16 +11,19 @@ import RealmSwift
 struct LocationDetail: View {
     @EnvironmentObject var state: AppState
     var location: Location
+    let day = Date().dayOfWeek()!
     
     var body: some View {
-        ScrollView {
-            MapView(coordinate: location.locationCoordinates, name: location.name)
-                .ignoresSafeArea(edges: .top)
-                .frame(height: 300)
-            
-            CircleImage(image: location.image)
-                .offset(y: -130)
-                .padding(.bottom, -130)
+        print(location)
+        
+        return ScrollView {
+//            MapView(coordinate: location.locationCoordinates, name: location.name)
+//                .ignoresSafeArea(edges: .top)
+//                .frame(height: 300)
+//            
+//            CircleImage(image: location.image)
+//                .offset(y: -130)
+//                .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
                 HStack {
@@ -35,6 +38,11 @@ struct LocationDetail: View {
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+                
+//                Text(location.locationHours!.sunday)
+                Text(day)
+
+//                Text(location.locationHours!.getHoursToday(today: day))
 
 //                Divider()
 
@@ -44,6 +52,14 @@ struct LocationDetail: View {
             }
             .padding()
         }
+    }
+}
+
+extension Date {
+    func dayOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self).lowercased()
     }
 }
 

@@ -17,5 +17,5 @@ class PublicUser: Object, ObjectKeyIdentifiable {
     @Persisted var userName: String
     @Persisted var profilePhoto: Photo?
     @Persisted var lastSeenAt: Date?
-    @Persisted var checkIns: List<CheckIn>
+//    @Persisted var checkIns: List<CheckIn>
 }
