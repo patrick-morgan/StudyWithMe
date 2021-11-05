@@ -29,7 +29,7 @@ extension User {
         self.firstName = firstName
         self.lastName = lastName
         self.userPreferences = userPreferences
-        self.lastSeenAt = Date.random
+//        self.lastSeenAt = Date.random
 //        checkIns.forEach { checkIn in
 //            self.checkIns.append(checkIn)
 //        }
@@ -42,7 +42,7 @@ extension User {
         firstName = user.firstName
         lastName = user.lastName
         userPreferences = UserPreferences(user.userPreferences)
-        lastSeenAt = user.lastSeenAt
+//        lastSeenAt = user.lastSeenAt
 //        checkIns.append(objectsIn: user.checkIns.map { CheckIn($0) })
     }
 }

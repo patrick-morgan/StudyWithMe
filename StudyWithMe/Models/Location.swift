@@ -17,10 +17,10 @@ final class Location: Object, ObjectKeyIdentifiable {
     @Persisted var address = ""
     @Persisted var city = ""
     @Persisted var state = ""
-//    @Persisted var imageName: String
-//    var image: Image {
-//        Image(imageName)
-//    }
+    @Persisted var imageName = ""
+    var image: Image {
+        Image(imageName)
+    }
 //    @Persisted var locationHours: LocationHours?
     
     // Coordinate for map view
