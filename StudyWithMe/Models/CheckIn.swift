@@ -10,6 +10,6 @@ import RealmSwift
 
 class CheckIn: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var id = UUID().uuidString
-    @Persisted var locationId: String
-    @Persisted var time: Date
+    @Persisted var locationId: String = ""
+    @Persisted var time: Date = Date()
 }

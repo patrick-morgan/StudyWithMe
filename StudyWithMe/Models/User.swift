@@ -16,7 +16,7 @@ final class User: Object, ObjectKeyIdentifiable {
     @Persisted var email = ""
     @Persisted var lastSeenAt: Date?
     @Persisted var userPreferences: UserPreferences?
-//    @Persisted var checkIns = List<CheckIn>()
+    @Persisted var checkIns = List<CheckIn>()
     
     var isProfileSet: Bool { !(userPreferences?.isEmpty ?? true) }
 

@@ -42,6 +42,7 @@ struct ContentView: View {
                                     }
                                     .tag(Tab.locations)
                                 ProfileHome()
+                                    .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
                                     .tabItem {
                                         Label("Profile", systemImage: "star")
                                     }

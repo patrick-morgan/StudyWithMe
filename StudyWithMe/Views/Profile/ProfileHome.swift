@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ProfileHome: View {
+    @EnvironmentObject var state: AppState
+    @Environment(\.realm) var userRealm
+    @ObservedResults(User.self) var users
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        print(users)
+        
+        return VStack {
+            Text("\(state.user!.userPreferences!.userName)'s Profile Page")
+//            if let checkIns =
+            
+        }
     }
 }
 

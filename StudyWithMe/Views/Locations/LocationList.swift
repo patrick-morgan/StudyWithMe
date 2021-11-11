@@ -16,13 +16,16 @@ struct LocationList: View {
     @ObservedResults(Location.self) var locations
 //    @ObservedResults(PublicUser.self) var publicUsers
 //    @ObservedResults(User.self) var users
-        
+    
     var body: some View {
         print(locations)
         return NavigationView {
             List {
                 ForEach(locations) { location in
-                    NavigationLink(destination: LocationDetail(location: location)) {
+                    NavigationLink(
+                        destination: LocationDetail(location: location)
+                            .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+                    ) {
                         LocationRow(location: location)
                     }
                 }

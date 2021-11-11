@@ -10,8 +10,12 @@ import RealmSwift
 
 struct LocationDetail: View {
     @EnvironmentObject var state: AppState
+    @Environment(\.realm) var userRealm
+    @State var tapped: Bool = false
     var location: Location
     let day = Date().dayOfWeek()!
+    
+    var done: () -> Void = { }
     
     var body: some View {
         print(location)
@@ -40,6 +44,15 @@ struct LocationDetail: View {
                 .foregroundColor(.secondary)
                 
 //                Text(location.locationHours!.sunday)
+                if tapped {
+                    Button("Checked In") {}
+                        .disabled(true)
+                } else {
+                    Button(action: saveCheckIn) {
+                        Text("Check In")
+                    }
+                }
+//                Button("Check In")
                 Text(day)
 
 //                Text(location.locationHours!.getHoursToday(today: day))
@@ -52,6 +65,25 @@ struct LocationDetail: View {
             }
             .padding()
         }
+    }
+    
+    private func saveCheckIn() {
+        tapped = true
+        let checkIn = CheckIn()
+        checkIn.locationId = location._id
+        state.shouldIndicateActivity = true
+
+        do {
+            try userRealm.write {
+                state.user?.checkIns.append(checkIn)
+            }
+        } catch {
+            state.error = "Unable to add checkIn to user realm"
+            state.shouldIndicateActivity = false
+            return
+        }
+        state.shouldIndicateActivity = false
+        done()
     }
 }
 
