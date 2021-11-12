@@ -22,14 +22,18 @@ struct CheckInRow: View {
         print(location!)
         
         return HStack {
-            Text(location?.name ?? "")
+            location!.image
+                .resizable()
+                .frame(width: 50, height: 50)
+ 
+            Text(location!.name)
             Spacer()
         }
     }
 }
 
-// struct CheckInRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckInRow()
-//    }
-// }
+ struct CheckInRow_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckInRow(locationId: "61848d1ff624ec20e0127e16")
+    }
+ }
