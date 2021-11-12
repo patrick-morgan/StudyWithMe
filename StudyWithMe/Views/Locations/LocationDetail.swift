@@ -25,9 +25,9 @@ struct LocationDetail: View {
 //                .ignoresSafeArea(edges: .top)
 //                .frame(height: 300)
 //            
-//            CircleImage(image: location.image)
-//                .offset(y: -130)
-//                .padding(.bottom, -130)
+            CircleImage(image: location.image)
+                .offset(y: -130)
+                .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
                 HStack {

@@ -12,14 +12,19 @@ struct ProfileHome: View {
     @EnvironmentObject var state: AppState
     @Environment(\.realm) var userRealm
     @ObservedResults(User.self) var users
-    
+        
     var body: some View {
         print(users)
         
         return VStack {
-            Text("\(state.user!.userPreferences!.userName)'s Profile Page")
-//            if let checkIns =
-            
+            HStack {
+                UserAvatarView(
+                    photo: state.user?.userPreferences?.profilePhoto
+                )
+
+                Text(state.user!.firstName)
+                Text(state.user!.lastName)
+            }
         }
     }
 }
