@@ -53,6 +53,10 @@
 		49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A09273DFF5A0025E145 /* UserAvatarView.swift */; };
 		49988A0F273DFFC40025E145 /* ThumbnailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A0E273DFFC40025E145 /* ThumbnailPhotoView.swift */; };
 		49988A14273E000E0025E145 /* BlankPersonIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A13273E000E0025E145 /* BlankPersonIconView.swift */; };
+		49988A20273E0BB00025E145 /* CheckInList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A1F273E0BB00025E145 /* CheckInList.swift */; };
+		49988A25273E0C360025E145 /* CheckInRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A24273E0C360025E145 /* CheckInRow.swift */; };
+		49988A2A273E10E30025E145 /* CheckInLocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A29273E10E30025E145 /* CheckInLocationDetail.swift */; };
+		49988A2F273E122D0025E145 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A2E273E122D0025E145 /* CheckInButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,10 @@
 		49988A09273DFF5A0025E145 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		49988A0E273DFFC40025E145 /* ThumbnailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailPhotoView.swift; sourceTree = "<group>"; };
 		49988A13273E000E0025E145 /* BlankPersonIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankPersonIconView.swift; sourceTree = "<group>"; };
+		49988A1F273E0BB00025E145 /* CheckInList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInList.swift; sourceTree = "<group>"; };
+		49988A24273E0C360025E145 /* CheckInRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInRow.swift; sourceTree = "<group>"; };
+		49988A29273E10E30025E145 /* CheckInLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInLocationDetail.swift; sourceTree = "<group>"; };
+		49988A2E273E122D0025E145 /* CheckInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +259,7 @@
 			children = (
 				496AC05A26FA51EF00699457 /* ContentView.swift */,
 				496AC0BE26FCF39600699457 /* HomeView.swift */,
+				49988A1E273E0B980025E145 /* CheckIns */,
 				49619A48272878A800DC9431 /* Friends */,
 				49619A512728791A00DC9431 /* Profile */,
 				497C77ED2721F0FB00742714 /* Locations */,
@@ -326,6 +335,17 @@
 				49619A5C2729D03B00DC9431 /* LocationDetail.swift */,
 			);
 			path = Locations;
+			sourceTree = "<group>";
+		};
+		49988A1E273E0B980025E145 /* CheckIns */ = {
+			isa = PBXGroup;
+			children = (
+				49988A1F273E0BB00025E145 /* CheckInList.swift */,
+				49988A24273E0C360025E145 /* CheckInRow.swift */,
+				49988A29273E10E30025E145 /* CheckInLocationDetail.swift */,
+				49988A2E273E122D0025E145 /* CheckInButton.swift */,
+			);
+			path = CheckIns;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +514,7 @@
 				497C779427155C8C00742714 /* OpaqueProgressView.swift in Sources */,
 				497C77E627156F3900742714 /* LogoutButton.swift in Sources */,
 				49619A712729F0A900DC9431 /* Coordinates.swift in Sources */,
+				49988A20273E0BB00025E145 /* CheckInList.swift in Sources */,
 				497C775C27149EB800742714 /* UserPreferences.swift in Sources */,
 				496AC0B326FBA2EE00699457 /* SignUpView.swift in Sources */,
 				49619A532728792E00DC9431 /* ProfileHome.swift in Sources */,
@@ -505,6 +526,7 @@
 				49619A4D272878F600DC9431 /* FriendsHome.swift in Sources */,
 				497C77CE271568AA00742714 /* CallToActionButton.swift in Sources */,
 				496AC05926FA51EF00699457 /* StudyWithMeApp.swift in Sources */,
+				49988A2A273E10E30025E145 /* CheckInLocationDetail.swift in Sources */,
 				497C77BC271567C700742714 /* PreviewHelpers.swift in Sources */,
 				497C77C92715684400742714 /* CaptionLabel.swift in Sources */,
 				496AC0AE26FBA14D00699457 /* SignInView.swift in Sources */,
@@ -516,7 +538,9 @@
 				497C77B62715676000742714 /* ThumbNail.swift in Sources */,
 				497C77C42715682D00742714 /* InputField.swift in Sources */,
 				497C77792714B6EE00742714 /* Location.swift in Sources */,
+				49988A25273E0C360025E145 /* CheckInRow.swift in Sources */,
 				497C775727149CC700742714 /* User.swift in Sources */,
+				49988A2F273E122D0025E145 /* CheckInButton.swift in Sources */,
 				49619A5D2729D03B00DC9431 /* LocationDetail.swift in Sources */,
 				49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */,
 				497C77EF2721F10C00742714 /* LocationList.swift in Sources */,

@@ -16,7 +16,7 @@ struct ProfileHome: View {
     var body: some View {
         print(users)
         
-        return VStack {
+        return VStack(alignment: .leading) {
             HStack {
                 UserAvatarView(
                     photo: state.user?.userPreferences?.profilePhoto
@@ -25,7 +25,12 @@ struct ProfileHome: View {
                 Text(state.user!.firstName)
                 Text(state.user!.lastName)
             }
+//            Spacer()
+            Text("Check Ins")
+            CheckInList()
+                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
         }
+        .padding()
     }
 }
 
