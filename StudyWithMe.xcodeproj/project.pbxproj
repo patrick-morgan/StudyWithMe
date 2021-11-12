@@ -50,6 +50,9 @@
 		497C77E127156ED800742714 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77E027156ED800742714 /* BackButton.swift */; };
 		497C77E627156F3900742714 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77E527156F3900742714 /* LogoutButton.swift */; };
 		497C77EF2721F10C00742714 /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77EE2721F10C00742714 /* LocationList.swift */; };
+		49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A09273DFF5A0025E145 /* UserAvatarView.swift */; };
+		49988A0F273DFFC40025E145 /* ThumbnailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A0E273DFFC40025E145 /* ThumbnailPhotoView.swift */; };
+		49988A14273E000E0025E145 /* BlankPersonIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A13273E000E0025E145 /* BlankPersonIconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,9 @@
 		497C77E027156ED800742714 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		497C77E527156F3900742714 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		497C77EE2721F10C00742714 /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		49988A09273DFF5A0025E145 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
+		49988A0E273DFFC40025E145 /* ThumbnailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailPhotoView.swift; sourceTree = "<group>"; };
+		49988A13273E000E0025E145 /* BlankPersonIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankPersonIconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,7 @@
 				496AC0B226FBA2EE00699457 /* SignUpView.swift */,
 				497C77E527156F3900742714 /* LogoutButton.swift */,
 				497C77992715662800742714 /* SetProfileView.swift */,
+				49988A09273DFF5A0025E145 /* UserAvatarView.swift */,
 			);
 			path = "User Accounts & Login";
 			sourceTree = "<group>";
@@ -295,6 +302,8 @@
 				497C77B52715676000742714 /* ThumbNail.swift */,
 				497C77DB27156D2800742714 /* UIImageThumbNail.swift */,
 				49619A662729E92900DC9431 /* CircleImage.swift */,
+				49988A0E273DFFC40025E145 /* ThumbnailPhotoView.swift */,
+				49988A13273E000E0025E145 /* BlankPersonIconView.swift */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -503,16 +512,19 @@
 				497C77AC2715672900742714 /* AvatarThumbNailView.swift in Sources */,
 				49619A672729E92900DC9431 /* CircleImage.swift in Sources */,
 				49619A6C2729EFF000DC9431 /* MapView.swift in Sources */,
+				49988A0F273DFFC40025E145 /* ThumbnailPhotoView.swift in Sources */,
 				497C77B62715676000742714 /* ThumbNail.swift in Sources */,
 				497C77C42715682D00742714 /* InputField.swift in Sources */,
 				497C77792714B6EE00742714 /* Location.swift in Sources */,
 				497C775727149CC700742714 /* User.swift in Sources */,
 				49619A5D2729D03B00DC9431 /* LocationDetail.swift in Sources */,
+				49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */,
 				497C77EF2721F10C00742714 /* LocationList.swift in Sources */,
 				497C77E127156ED800742714 /* BackButton.swift in Sources */,
 				49619A582729D03400DC9431 /* LocationRow.swift in Sources */,
 				49619A3E2728788500DC9431 /* LocationHome.swift in Sources */,
 				497C77B12715674600742714 /* ThumbNailView.swift in Sources */,
+				49988A14273E000E0025E145 /* BlankPersonIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
