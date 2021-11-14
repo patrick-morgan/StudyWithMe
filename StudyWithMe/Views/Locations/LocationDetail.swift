@@ -38,7 +38,6 @@ struct LocationDetail: View {
                 HStack {
                     Text(location.address)
                     Spacer()
-//                    Text(location.state)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -52,15 +51,14 @@ struct LocationDetail: View {
                         Text("Check In")
                     }
                 }
-//                Button("Check In")
-                Text(day)
+//                Text(day)
 
 //                Text(location.locationHours!.getHoursToday(today: day))
 
 //                Divider()
 
 //                Text("About \(landmark.name)")
-                    .font(.title2)
+//                    .font(.title2)
 //                Text(landmark.description)
             }
             .padding()

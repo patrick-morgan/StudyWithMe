@@ -10,12 +10,7 @@ import RealmSwift
 
 struct LocationList: View {
     @EnvironmentObject var state: AppState
-
-//    @Environment(\.realm) var realm
-    
     @ObservedResults(Location.self) var locations
-//    @ObservedResults(PublicUser.self) var publicUsers
-//    @ObservedResults(User.self) var users
     
     var body: some View {
         print(locations)
