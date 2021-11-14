@@ -21,7 +21,7 @@ final class Location: Object, ObjectKeyIdentifiable {
     var image: Image {
         Image(imageName)
     }
-//    @Persisted var locationHours: LocationHours?
+    @Persisted var locationHours: LocationHours?
     
     // Coordinate for map view
     // To-one relationships in realm must always be marked optional

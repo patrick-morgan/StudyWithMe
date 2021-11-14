@@ -13,7 +13,7 @@ struct LocationDetail: View {
     @Environment(\.realm) var userRealm
     @State var tapped: Bool = false
     var location: Location
-    let day = Date().dayOfWeek()!
+    let day = Date().dayOfWeek()!.lowercased()
     
     var done: () -> Void = { }
     
@@ -42,7 +42,8 @@ struct LocationDetail: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 
-//                Text(location.locationHours!.sunday)
+                Text(location.locationHours!.getHoursToday(today: day))
+
                 if tapped {
                     Button("Checked In") {}
                         .disabled(true)
@@ -51,9 +52,6 @@ struct LocationDetail: View {
                         Text("Check In")
                     }
                 }
-//                Text(day)
-
-//                Text(location.locationHours!.getHoursToday(today: day))
 
 //                Divider()
 
