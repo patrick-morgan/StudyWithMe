@@ -21,65 +21,30 @@ struct FriendButton: View {
     
     @State var tapped: Bool = false
     
-    var done: () -> Void = { }
-
     var body: some View {
         if friend != nil {
+            // Remove friend
             if friend!.relationship == .friend {
-                if tapped {
-                    Button("Fish") {}
-                        .disabled(true)
-//                    Button("Remove Friend") {}
-//                        .disabled(true)
-                } else {
-                    Button(action: removeFriendship) {
-                        Text("Remove Friend")
-                    }
+                Button(action: removeFriendship) {
+                    Text("Remove Friend")
                 }
             }
             // Check if Pending
             else if friend!.relationship == .incomingPending {
-                if tapped {
-                    Button("Fish Here") {}
-                        .disabled(true)
-//                    Button("Remove Friend") {}
-//                        .disabled(true)
-                } else {
-                    Button(action: addFriendBack) {
-                        Text("Add Friend Back")
-                    }
+                Button(action: addFriendBack) {
+                    Text("Add Friend Back")
                 }
             } else if friend!.relationship == .outgoingPending {
-                if tapped {
-                    Button("Add Friend") {}
-                        .disabled(true)
-                } else {
-                    Button(action: removeFriendship) {
-                        Text("Request Pending")
-                    }
+                Button(action: removeFriendship) {
+                    Text("Request Pending")
                 }
             }
         } else {
             // Add Friend
-            if tapped {
-                Button("Pending Fish") {}
-                    .disabled(true)
-//                    Button("Remove Friend") {}
-//                        .disabled(true)
-            } else {
-                Button(action: addFriend) {
-                    Text("Add Friend")
-                }
+            Button(action: addFriend) {
+                Text("Add Friend")
             }
         }
-//        if tapped {
-//            Button("Checked In") {}
-//                .disabled(true)
-//        } else {
-//            Button(action: addFriend) {
-//                Text("Check In")
-//            }
-//        }
     }
     
     private func addFriendBack() {
@@ -107,12 +72,10 @@ struct FriendButton: View {
         }
         do {
             try userRealm.write {
-                let friendshipP = user.friends.filter("friendId = %@", friendId).first
-    //            print("frinshiPP")
-    //            print(friendshipP)
+                let friendship = user.friends.filter("friendId = %@", friendId).first
                 
-                if friendshipP != nil {
-                    userRealm.delete(friendshipP!)
+                if friendship != nil {
+                    userRealm.delete(friendship!)
                 }
             }
         } catch {
@@ -123,6 +86,8 @@ struct FriendButton: View {
         }
 
         state.shouldIndicateActivity = false
+        
+        // TODO: Figure out why this doesn't work, and why the above works instead
 //        print(users[0])
 //        print(friend)
 //        do {
