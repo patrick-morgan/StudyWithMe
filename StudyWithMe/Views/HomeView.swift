@@ -19,10 +19,7 @@ struct HomeView: View {
         VStack {
             Text("Where to study today?")
             LocationList()
-                .environmentObject(state)
                 .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))
-//                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "all-users=all-the-users"))
-
         }
     }
 }

@@ -58,6 +58,9 @@
 		49988A2A273E10E30025E145 /* CheckInLocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A29273E10E30025E145 /* CheckInLocationDetail.swift */; };
 		49988A2F273E122D0025E145 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A2E273E122D0025E145 /* CheckInButton.swift */; };
 		49988A3C2742DF520025E145 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A3B2742DF520025E145 /* Friend.swift */; };
+		49988A442742EB990025E145 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A432742EB990025E145 /* SearchView.swift */; };
+		49988A492742EDF10025E145 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A482742EDF10025E145 /* SearchBar.swift */; };
+		49988A4E2742F2910025E145 /* PublicProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A4D2742F2910025E145 /* PublicProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,9 @@
 		49988A29273E10E30025E145 /* CheckInLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInLocationDetail.swift; sourceTree = "<group>"; };
 		49988A2E273E122D0025E145 /* CheckInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInButton.swift; sourceTree = "<group>"; };
 		49988A3B2742DF520025E145 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		49988A432742EB990025E145 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		49988A482742EDF10025E145 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		49988A4D2742F2910025E145 /* PublicProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				49619A4C272878F600DC9431 /* FriendsHome.swift */,
+				49988A432742EB990025E145 /* SearchView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				49619A522728792E00DC9431 /* ProfileHome.swift */,
+				49988A4D2742F2910025E145 /* PublicProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 				497C77C82715684400742714 /* CaptionLabel.swift */,
 				497C77CD271568AA00742714 /* CallToActionButton.swift */,
 				497C77E027156ED800742714 /* BackButton.swift */,
+				49988A482742EDF10025E145 /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -521,6 +530,7 @@
 				49988A20273E0BB00025E145 /* CheckInList.swift in Sources */,
 				497C775C27149EB800742714 /* UserPreferences.swift in Sources */,
 				496AC0B326FBA2EE00699457 /* SignUpView.swift in Sources */,
+				49988A4E2742F2910025E145 /* PublicProfileView.swift in Sources */,
 				49619A532728792E00DC9431 /* ProfileHome.swift in Sources */,
 				49619A622729D11700DC9431 /* SampleData.swift in Sources */,
 				497C77A4271566ED00742714 /* AvatarButton.swift in Sources */,
@@ -536,6 +546,7 @@
 				496AC0AE26FBA14D00699457 /* SignInView.swift in Sources */,
 				496AC0BF26FCF39600699457 /* HomeView.swift in Sources */,
 				497C77AC2715672900742714 /* AvatarThumbNailView.swift in Sources */,
+				49988A492742EDF10025E145 /* SearchBar.swift in Sources */,
 				49619A672729E92900DC9431 /* CircleImage.swift in Sources */,
 				49619A6C2729EFF000DC9431 /* MapView.swift in Sources */,
 				49988A0F273DFFC40025E145 /* ThumbnailPhotoView.swift in Sources */,
@@ -544,6 +555,7 @@
 				497C77792714B6EE00742714 /* Location.swift in Sources */,
 				49988A25273E0C360025E145 /* CheckInRow.swift in Sources */,
 				497C775727149CC700742714 /* User.swift in Sources */,
+				49988A442742EB990025E145 /* SearchView.swift in Sources */,
 				49988A2F273E122D0025E145 /* CheckInButton.swift in Sources */,
 				49619A5D2729D03B00DC9431 /* LocationDetail.swift in Sources */,
 				49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */,

@@ -14,8 +14,9 @@ struct FriendsHome: View {
     @ObservedResults(User.self) var users
     
     var body: some View {
-
-        return VStack {
+        VStack {
+            SearchView()
+                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "all-users=all-the-users"))
             if let friends = users[0].friends {
                 if friends.count == 0 {
                     Text("No friends :(")
