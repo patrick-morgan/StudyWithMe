@@ -6,10 +6,37 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct FriendsHome: View {
+    @EnvironmentObject var state: AppState
+    @Environment(\.realm) var userRealm
+    @ObservedResults(User.self) var users
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        return VStack {
+            if let friends = users[0].friends {
+                if friends.count == 0 {
+                    Text("No friends :(")
+                } else {
+                    List {
+                        ForEach(friends) { _ in
+                            Text("hi")
+    //                        NavigationLink(
+    //                            destination: CheckInLocationDetail(locationId: checkIn.locationId)
+    //                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))
+    //                        ) {
+    //                            CheckInRow(locationId: checkIn.locationId)
+    //                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))
+    //                        }
+                        }
+                    }
+                }
+            } else {
+                Text("im a bloke")
+            }
+       }
     }
 }
 

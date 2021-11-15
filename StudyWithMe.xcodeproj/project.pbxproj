@@ -57,6 +57,7 @@
 		49988A25273E0C360025E145 /* CheckInRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A24273E0C360025E145 /* CheckInRow.swift */; };
 		49988A2A273E10E30025E145 /* CheckInLocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A29273E10E30025E145 /* CheckInLocationDetail.swift */; };
 		49988A2F273E122D0025E145 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A2E273E122D0025E145 /* CheckInButton.swift */; };
+		49988A3C2742DF520025E145 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49988A3B2742DF520025E145 /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		49988A24273E0C360025E145 /* CheckInRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInRow.swift; sourceTree = "<group>"; };
 		49988A29273E10E30025E145 /* CheckInLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInLocationDetail.swift; sourceTree = "<group>"; };
 		49988A2E273E122D0025E145 /* CheckInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInButton.swift; sourceTree = "<group>"; };
+		49988A3B2742DF520025E145 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 				497C77782714B6EE00742714 /* Location.swift */,
 				497C77802714B98400742714 /* LocationHours.swift */,
 				49619A702729F0A900DC9431 /* Coordinates.swift */,
+				49988A3B2742DF520025E145 /* Friend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				497C778E271558D800742714 /* AppState.swift in Sources */,
 				497C77D427156C7E00742714 /* PhotoCaptureController.swift in Sources */,
 				496AC05B26FA51EF00699457 /* ContentView.swift in Sources */,
+				49988A3C2742DF520025E145 /* Friend.swift in Sources */,
 				497C779A2715662800742714 /* SetProfileView.swift in Sources */,
 				497C77812714B98400742714 /* LocationHours.swift in Sources */,
 				497C776C2714A2BE00742714 /* CheckIn.swift in Sources */,

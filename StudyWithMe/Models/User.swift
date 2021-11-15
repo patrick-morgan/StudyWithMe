@@ -21,5 +21,5 @@ final class User: Object, ObjectKeyIdentifiable {
     var isProfileSet: Bool { !(userPreferences?.isEmpty ?? true) }
 
     // TODO: Add friends, pending friendships relationships
-    //    @Persisted var friends:
+    @Persisted var friends = List<Friend>()
 }

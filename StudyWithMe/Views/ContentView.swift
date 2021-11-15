@@ -30,6 +30,7 @@ struct ContentView: View {
                     } else {
                         TabView(selection: $selection) {
                             FriendsHome()
+                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
                                 .tabItem {
                                     Label("Friends", systemImage: "star")
                                 }
