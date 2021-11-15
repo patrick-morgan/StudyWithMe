@@ -18,7 +18,7 @@ struct LocationDetail: View {
     var done: () -> Void = { }
     
     var body: some View {
-        print(location)
+//        print(location)
         
         return ScrollView {
 //            MapView(coordinate: location.locationCoordinates, name: location.name)
@@ -72,6 +72,9 @@ struct LocationDetail: View {
         do {
             try userRealm.write {
                 state.user?.checkIns.append(checkIn)
+//                print("appended checkin")
+//                userRealm.delete(checkIn)
+//                print("removed checkIn")
             }
         } catch {
             state.error = "Unable to add checkIn to user realm"

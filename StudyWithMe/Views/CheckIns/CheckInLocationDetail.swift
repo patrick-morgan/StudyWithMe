@@ -23,7 +23,7 @@ struct CheckInLocationDetail: View {
     let day = Date().dayOfWeek()!
         
     var body: some View {
-        print(location ?? "nothing")
+//        print(location ?? "nothing")
         
         return ScrollView {
 //            MapView(coordinate: location.locationCoordinates, name: location.name)

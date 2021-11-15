@@ -27,6 +27,7 @@
 		496AC0AE26FBA14D00699457 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AC0AD26FBA14D00699457 /* SignInView.swift */; };
 		496AC0B326FBA2EE00699457 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AC0B226FBA2EE00699457 /* SignUpView.swift */; };
 		496AC0BF26FCF39600699457 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AC0BE26FCF39600699457 /* HomeView.swift */; };
+		496D9CD82743055100E7BDF9 /* FriendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D9CD72743055100E7BDF9 /* FriendButton.swift */; };
 		497C775727149CC700742714 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C775627149CC700742714 /* User.swift */; };
 		497C775C27149EB800742714 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C775B27149EB800742714 /* UserPreferences.swift */; };
 		497C77612714A09700742714 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497C77602714A09700742714 /* Photo.swift */; };
@@ -106,6 +107,7 @@
 		496AC0AD26FBA14D00699457 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		496AC0B226FBA2EE00699457 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		496AC0BE26FCF39600699457 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		496D9CD72743055100E7BDF9 /* FriendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendButton.swift; sourceTree = "<group>"; };
 		497C775627149CC700742714 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		497C775B27149EB800742714 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		497C77602714A09700742714 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -310,6 +312,8 @@
 		497C77A1271566B100742714 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				49988A2E273E122D0025E145 /* CheckInButton.swift */,
+				496D9CD72743055100E7BDF9 /* FriendButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -355,7 +359,6 @@
 				49988A1F273E0BB00025E145 /* CheckInList.swift */,
 				49988A24273E0C360025E145 /* CheckInRow.swift */,
 				49988A29273E10E30025E145 /* CheckInLocationDetail.swift */,
-				49988A2E273E122D0025E145 /* CheckInButton.swift */,
 			);
 			path = CheckIns;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				49988A0A273DFF5A0025E145 /* UserAvatarView.swift in Sources */,
 				497C77EF2721F10C00742714 /* LocationList.swift in Sources */,
 				497C77E127156ED800742714 /* BackButton.swift in Sources */,
+				496D9CD82743055100E7BDF9 /* FriendButton.swift in Sources */,
 				49619A582729D03400DC9431 /* LocationRow.swift in Sources */,
 				49619A3E2728788500DC9431 /* LocationHome.swift in Sources */,
 				497C77B12715674600742714 /* ThumbNailView.swift in Sources */,

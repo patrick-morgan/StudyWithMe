@@ -29,10 +29,24 @@ struct PublicProfileView: View {
                 Text(publicUser!.firstName)
                 Text(publicUser!.lastName)
             }
+            HStack {
+                FriendButton(friendId: publicUser!._id)
+                    .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+            }
 //            Spacer()
             Text("Check Ins")
-//            CheckInList()
-//                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+            if let checkIns = publicUser!.checkIns {
+                List {
+                    ForEach(checkIns) { checkIn in
+                        NavigationLink(
+                            destination: CheckInLocationDetail(locationId: checkIn.locationId)
+                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))
+                        ) {
+                            CheckInRow(locationId: checkIn.locationId)
+                                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "location=all-the-users"))                        }
+                    }
+                }
+            }
         }
         .padding()
     }

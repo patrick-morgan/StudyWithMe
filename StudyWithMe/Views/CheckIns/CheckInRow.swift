@@ -17,9 +17,8 @@ struct CheckInRow: View {
     }
     
     var body: some View {
-//        print("a fish!")
-        print(locationId)
-        print(location!)
+//        print(locationId)
+//        print(location!)
         
         return HStack {
             location!.image

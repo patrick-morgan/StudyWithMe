@@ -13,7 +13,7 @@ struct LocationList: View {
     @ObservedResults(Location.self) var locations
     
     var body: some View {
-        print(locations)
+//        print(locations)
         return NavigationView {
             List {
                 ForEach(locations) { location in
