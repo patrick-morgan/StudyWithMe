@@ -69,6 +69,7 @@ struct FriendButton: View {
             user.functions.updateOtherUserFriendship([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("friend")]) { _, error in
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
+                    state.shouldIndicateActivity = false
                     return
                 }
                 print("Updated user friendship for \(friendId)")
@@ -80,6 +81,7 @@ struct FriendButton: View {
     private func removeFriendship() {
         state.shouldIndicateActivity = true
         
+        // Remove friendship from both users friends
         guard let user = userRealm.object(ofType: User.self, forPrimaryKey: state.user!._id) else {
             print("unable to get user")
             state.shouldIndicateActivity = false
@@ -98,6 +100,19 @@ struct FriendButton: View {
             state.shouldIndicateActivity = false
             print("Unable to add delete friendship with friendId \(friend!.friendId)")
             return
+        }
+        do {
+            let user = app.currentUser!
+            // This function will delete the relationship from the friends array for the user w/ id equal to the first argument
+            // and friendId equal to the second argumesnt
+            user.functions.removeFriend([AnyBSON(friendId), AnyBSON(state.user!._id)]) { _, error in
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    state.shouldIndicateActivity = false
+                    return
+                }
+                print("Deleted user friendship for \(friendId)")
+            }
         }
 
         state.shouldIndicateActivity = false
@@ -138,6 +153,7 @@ struct FriendButton: View {
             user.functions.addFriend([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("incomingPending")]) { _, error in
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
+                    state.shouldIndicateActivity = false
                     return
                 }
                 print("Added new user friendship for \(friendId)")
