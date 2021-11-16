@@ -48,16 +48,32 @@ struct FriendButton: View {
     }
     
     private func addFriendBack() {
+        // Called for accepting incoming friendship requests
         state.shouldIndicateActivity = true
         do {
+            let thawedFriend = friend!.thaw()
             try userRealm.write {
-                friend!.relationship = .friend
+                thawedFriend!.relationship = .friend
+//                friend!.relationship = .friend
             }
         } catch {
             state.error = "Unable to add friend with friendId \(friend!.friendId) back"
             state.shouldIndicateActivity = false
             print("Unable to add friend with friendId \(friend!.friendId) back")
             return
+        }
+        do {
+            let user = app.currentUser!
+            // This function will update the friends array for the user w/ id equal to the first argument
+            // it will change the relationship with friendId equal to the second argument
+            // it will change the relationshipType to the third argument
+            user.functions.updateOtherUserFriendship([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("friend")]) { result, error in
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    return
+                }
+                print("Updated user friendship for \(friendId)")
+            }
         }
         state.shouldIndicateActivity = false
     }
