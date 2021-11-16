@@ -54,7 +54,6 @@ struct FriendButton: View {
             let thawedFriend = friend!.thaw()
             try userRealm.write {
                 thawedFriend!.relationship = .friend
-//                friend!.relationship = .friend
             }
         } catch {
             state.error = "Unable to add friend with friendId \(friend!.friendId) back"
@@ -67,7 +66,7 @@ struct FriendButton: View {
             // This function will update the friends array for the user w/ id equal to the first argument
             // it will change the relationship with friendId equal to the second argument
             // it will change the relationshipType to the third argument
-            user.functions.updateOtherUserFriendship([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("friend")]) { result, error in
+            user.functions.updateOtherUserFriendship([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("friend")]) { _, error in
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
                     return
@@ -131,6 +130,18 @@ struct FriendButton: View {
             state.shouldIndicateActivity = false
             print("Unable to add friend with friendId \(friendId)")
             return
+        }
+        do {
+            let user = app.currentUser!
+            // This function will add a new relationship to the friends array for the user w/ id equal to the first argument
+            // it will set friendId equal to the second argumesnt, and relationshipType to "incomingPending"
+            user.functions.addFriend([AnyBSON(friendId), AnyBSON(state.user!._id), AnyBSON("incomingPending")]) { _, error in
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    return
+                }
+                print("Added new user friendship for \(friendId)")
+            }
         }
         state.shouldIndicateActivity = false
     }
